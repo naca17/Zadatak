@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+	<title> Grocery List Web Page </title>
+	<head> 
+		<h1> Grocery List </h1> 
+		<link type="text/css" rel="stylesheet" href="grocerystyle.css">
+	</head>
+
+	<body> 
+		<form name="Groceries" onsubmit="validationForm();">
+	
+		      	Item Name:
+		      	<input type="text" name="item1name" id="item1name" label="Item 1 Name" required/> 
+		      	    <span class="validity"></span>
+		      	Item Quantity
+		        <input type="number" name="item1q" id="item1q" required />
+		            <span class="validity"></span>
+		        <button type="submit" value="Submit" id="submit"> Submit </button>
+	
+	</form>
+
+
+<!-- pravljenje liste od input infomacija -->
+<script type="text/javascript">
+
+document.getElementById("submit").onclick = function() {
+
+    var text = document.getElementById("item1name").value; 
+    var quantity = document.getElementById("item1q").value;
+	var li = document.createElement("li");
+  	li.innerText = text + quantity;
+
+    document.getElementById("list").appendChild(li);
+}
+
+</script>
+
+
+<ul id='list'>
+  <li id="itemlist"> <b>Your final grocery list:</b></li> 
+  </ul>
+
+
+<button id="remove"> remove an item </button>
+
+<!-- uklanjanje stavke sa spiska -->
+<script type="text/javascript"> 
+
+	document.getElementById("remove").onclick = function() {
+		function remove {
+
+	var list = document.getElementById("list");
+    var Itemlist = document.getElementsByTagName("itemlist").value; 
+    var lastItem=Itemlist[ItemList.length-1];
+    list.removeChild(lastItem);
+}
+}
+</script> 
+
+
+<!-- validacija forme -->
+
+<script type="text/javascript">
+	document.getElementById("submit").onclick = function validationForm() {
+
+var name=document.Groceries.item1name.value;  
+var quantity=document.Groceries.item1q.value;  
+  
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if (isNaN(quantity)){  
+  document.getElementById("quantity").innerHTML="Enter Numbers only";  
+  return false;  
+}else{  
+  return true;  
+  }  
+}  
+}  
+</script>  
+
+	</body>
+	</html>
+
